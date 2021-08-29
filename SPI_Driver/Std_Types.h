@@ -1,15 +1,15 @@
- /******************************************************************************
- *
- * Module:Standard Types
- *
- * File Name: Std_Types.h
- *
- * Description: Contains all types that are used across several modules of the 
- *              basic software and that are platform and compiler independent.
- *
- * Author: Esmail Ahmed
- *
- *******************************************************************************/
+/******************************************************************************
+*
+* Module:Standard Types
+*
+* File Name: Std_Types.h
+*
+* Description: Contains all types that are used across several modules of the 
+*              basic software and that are platform and compiler independent.
+*
+* Author: Esmail Ahmed
+*
+*******************************************************************************/
 #ifndef STD_TYPES_H
 #define STD_TYPES_H
 
@@ -23,8 +23,5 @@
 
 #define STD_ON          0x01U 
 #define STD_OFF         0x00U
-
-
-
 
 #endif /* STD_TYPES_H */

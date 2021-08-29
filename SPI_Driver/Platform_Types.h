@@ -1,14 +1,14 @@
 /******************************************************************************
- *
- * Module name: Platform Types
- *
- * File Name: Platform_Types.h
- *
- * Description: Platform types for ARM Cortex-M4F
- *
- * Author: Esmail Ahmed 
- *
- *******************************************************************************/
+*
+* Module name: Platform Types
+*
+* File Name: Platform_Types.h
+*
+* Description: Platform types for ARM Cortex-M4F
+*
+* Author: Esmail Ahmed 
+*
+*******************************************************************************/
 
 #ifndef PLATFORM_TYPES_H
 #define PLATFORM_TYPES_H

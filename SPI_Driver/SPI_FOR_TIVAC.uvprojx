@@ -417,6 +417,11 @@
               <FileType>5</FileType>
               <FilePath>.\Std_Types.h</FilePath>
             </File>
+            <File>
+              <FileName>spi_registers.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\spi_registers.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
