@@ -37,7 +37,7 @@
 #define SPI0_CLK_CFG_REG  				(*((volatile uint32 *)0x40008FC8))
 
 /* NVIC Registers for SPI0 Interrupt handling */
-#define NVIC_PRI1_REG             (*((volatile unint32 *)0xE000E404))
-#define NVIC_EN0_REG              (*((volatile unint32 *)0xE000E100))
+#define NVIC_PRI1_REG             (*((volatile uint32 *)0xE000E404))
+#define NVIC_EN0_REG              (*((volatile uint32 *)0xE000E100))
 	
 #endif /* SPI_REGS_H */

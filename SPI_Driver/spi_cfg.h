@@ -18,7 +18,10 @@
 #define SPI_CLK_CFG
 
 /* Macros for SPI Status */
-#define SPI_INITIALIZED                (1U)
-#define SPI_NOT_INITIALIZED            (0U)
+#define SPI_INITIALIZED        (1U)
+#define SPI_NOT_INITIALIZED    (0U)
+
+/* Define Clock used by SPI */
+#define SPISYSCLK              (16000000U)
 
 #endif /* SPI_CFG_H */
