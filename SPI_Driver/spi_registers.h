@@ -4,7 +4,7 @@
 *
 * File Name: spi.h
 *
-* Description: Header file for spi module's registers.
+* Description: Header file for TM4C123GH6PM Microcontroller - SPI Driver Registers
 *
 * Author: Esmail Ahmed
 *
@@ -15,15 +15,16 @@
 
 #include "Std_Types.h"
 
-/* Needed to initialize the port containing SPI0 */
+/* Needed to initialize the port containing SPI0 Clock and SPI0 Clock */
 #define SYSCTL_GPIO_REGCGC2_REG   (*((volatile uint32 *)0x400FE108))
+#define SYSCTL_SPI_RCGCSPI_REG    (*((volatile uint32 *)0x400FE61C))
 
 /* Needed GPIO Registers for SPI0 pins Initialization */
 #define GPIO_PORTA_AFSEL_REG      (*((volatile uint32 *)0x40004420))
 #define GPIO_PORTA_PCTL_REG       (*((volatile uint32 *)0x4000452C))
 #define GPIO_PORTA_DIR_REG        (*((volatile uint32 *)0x40004400))
 #define GPIO_PORTA_DEN_REG        (*((volatile uint32 *)0x4000451C))
-
+#define GPIO_PORTA_PUR_REG				(*((volatile uint32 *)0x40004510))
 /* SPI Registers for SPI0 configuration */
 #define SPI0_CTL_REG_0				    (*((volatile uint32 *)0x40008000))
 #define SPI0_CTL_REG_1				    (*((volatile uint32 *)0x40008004))

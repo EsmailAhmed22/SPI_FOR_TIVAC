@@ -10,3 +10,8 @@
 *
 *******************************************************************************/
 #include "spi.h"
+
+/* PB structure used with SPI_Init API */
+const SPI_ConfigType SPI_Configuration= {5,
+																	 5, 
+																	 5};
