@@ -30,8 +30,10 @@
 #define NVIC_SPI0_INTERRUPT						(7U)
 #define SPI0_ENABLE_BIT								(1U)				
 #define SPI0_MASTER_SLAVE_BIT					(2U)
-#define SPI_BUSY_CHECK
-#define SPI_RX_INT_ENABLE
+#define SPI0_SCR_BIT									(8U)
+#define SPI0_FRAME_BIT								(4U)
+#define SPI_BUSY_CHECK								(4U)
+#define SPI_RX_INT_ENABLE							(1U)
 /*******************************************************************************
 ****************************TYPES DECLARATION***********************************
 *******************************************************************************/
@@ -41,6 +43,13 @@ typedef enum
 {
 	MASTER_ENABLE,SLAVE_ENABLE
 }SPI_Master_Slave_Selection;
+typedef enum
+{
+	DATA_SIZE_4_BITS=3 ,DATA_SIZE_5_BITS  ,DATA_SIZE_6_BITS ,
+	DATA_SIZE_7_BITS   ,DATA_SIZE_8_BITS  ,DATA_SIZE_9_BITS ,
+	DATA_SIZE_10_BITS  ,DATA_SIZE_11_BITS ,DATA_SIZE_12_BITS ,
+	DATA_SIZE_13_BITS  ,DATA_SIZE_14_BITS ,DATA_SIZE_15_BITS
+}SPI_Data_size;
 typedef struct
 {
 	uint8 s_sc_rate;
@@ -63,6 +72,9 @@ uint8 SPI_receiveByte(void);
 
 /* This function is responsible for Making Master or Slave */
 void SPI_Master_Slave_Enable(uint8 a_master_or_slave);
+
+/*This function is responsible for saving the address that will be called after interrupts happen*/
+void SPI_callBackAdress(void(*a_Func_Ptr)(void));
 
 extern const SPI_ConfigType SPI_Configuration;
 #endif	/* SPI_H */
