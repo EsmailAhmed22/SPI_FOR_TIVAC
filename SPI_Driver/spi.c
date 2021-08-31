@@ -61,11 +61,26 @@ void SPI_init(const SPI_ConfigType *a_config_Ptr){
   /*Set A2,A3,A4 and A5 as Digital Pins*/
   GPIO_PORTA_DEN_REG |= SPI0_PINS_MASK;
 
-  
+  /* Disable SPI0 */
+	CLEAR_BIT(SPI0_CTL_REG_1,SPI0_ENABLE_BIT);
 
-
+  /* Select master or slave */
+	if(a_config_Ptr->s_master_slave == MASTER_ENABLE)
+	{
+		CLEAR_BIT(SPI0_CTL_REG_1,SPI0_MASTER_SLAVE_BIT);
+	}
+	else if (a_config_Ptr->s_master_slave == SLAVE_ENABLE)
+	{
+		SET_BIT(SPI0_CTL_REG_1,SPI0_MASTER_SLAVE_BIT);	
+	}
+	
+	/* Configure which clock is used by SPI0 */
+	SPI0_CLK_CFG_REG=SPI_CLK_CFG;
   
-  /* Set priority 2 for  SPI_Receive_Handler*/
+	/* Set prescaler value */
+	SPI0_CLKPS_REG= a_config_Ptr->s_clk_ps_div;
+	
+	/* Set priority 2 for  SPI_Receive_Handler*/
   NVIC_PRI1_REG &= 0x0FFFFFFF;
   NVIC_PRI1_REG |= SPI0_HANDLER_PRIORITY;
   

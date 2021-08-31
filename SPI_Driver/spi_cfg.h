@@ -14,8 +14,11 @@
 
 #include "Std_Types.h"
 
-/* Macros for clk used */
-#define SPI_CLK_CFG
+/* Macros for clk used 
+	 0 for System clock
+	 5 for PIOSC	
+*/
+#define SPI_CLK_CFG						 (0U)	
 
 /* Macros for SPI Status */
 #define SPI_INITIALIZED        (1U)

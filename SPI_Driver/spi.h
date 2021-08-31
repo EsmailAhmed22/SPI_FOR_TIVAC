@@ -28,8 +28,8 @@
 #define SPI0_PINS_SLAVE_DIR_MASK		  (0x00000020)
 #define SPI0_HANDLER_PRIORITY				  (0x40000000)
 #define NVIC_SPI0_INTERRUPT						(7U)
-#define SPI_MASTER_ENABLE_VALUE
-#define SPI_ENABLE_VALUE
+#define SPI0_ENABLE_BIT								(1U)				
+#define SPI0_MASTER_SLAVE_BIT					(2U)
 #define SPI_BUSY_CHECK
 #define SPI_RX_INT_ENABLE
 /*******************************************************************************
