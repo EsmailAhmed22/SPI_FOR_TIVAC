@@ -12,6 +12,7 @@
 #include "spi.h"
 
 /* PB structure used with SPI_Init API */
-const SPI_ConfigType SPI_Configuration= {5,
-																	 5, 
-																	 5};
+const SPI_ConfigType SPI_Configuration= {9,
+																				 2, 
+																				MASTER_ENABLE,
+																				MASTER_ENABLE};

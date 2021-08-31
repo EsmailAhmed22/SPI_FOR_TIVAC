@@ -53,8 +53,8 @@ typedef enum
 typedef struct
 {
 	uint8 s_sc_rate;
-	uint8 s_data_size;
 	uint8	s_clk_ps_div;
+	uint8 s_data_size;
 	SPI_Master_Slave_Selection s_master_slave;		/* Initialize SPI as master or slave */
 	
 }SPI_ConfigType;
