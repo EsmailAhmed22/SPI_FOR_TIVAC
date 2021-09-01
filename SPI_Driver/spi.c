@@ -52,35 +52,14 @@ void SPI_init(const SPI_ConfigType *a_config_Ptr){
   GPIO_PORTA_AFSEL_REG |= SPI0_PINS_MASK;
 	GPIO_PORTA_PCTL_REG  |= SPI0_PCTL_VALUE;
 	
-	/* Set Pins A2,A3,A4 and A5 directions */
-	if(a_config_Ptr->s_master_slave == MASTER_ENABLE)
-	{
-		/* Set Pins A2,A3,A4 and A5 directions for SPI MASTER */
-		GPIO_PORTA_DIR_REG &= (uint32)~SPI0_PINS_MASK;
-		GPIO_PORTA_DIR_REG |= SPI0_PINS_MASTER_DIR_MASK;
-	}
-	else if (a_config_Ptr->s_master_slave == SLAVE_ENABLE)
-	{
-		/* Set Pins A2,A3,A4 and A5 directions for SPI SLAVE */
-		GPIO_PORTA_DIR_REG &= (uint32)~SPI0_PINS_MASK;
-		GPIO_PORTA_DIR_REG |= SPI0_PINS_SLAVE_DIR_MASK;
-	}
-  
   /*Set A2,A3,A4 and A5 as Digital Pins*/
   GPIO_PORTA_DEN_REG |= SPI0_PINS_MASK;
 
   /* Disable SPI0 */
 	CLEAR_BIT(SPI0_CTL_REG_1,SPI0_ENABLE_BIT);
 
-  /* Select master or slave */
-	if(a_config_Ptr->s_master_slave == MASTER_ENABLE)
-	{
-		CLEAR_BIT(SPI0_CTL_REG_1,SPI0_MASTER_SLAVE_BIT);
-	}
-	else if (a_config_Ptr->s_master_slave == SLAVE_ENABLE)
-	{
-		SET_BIT(SPI0_CTL_REG_1,SPI0_MASTER_SLAVE_BIT);	
-	}
+  /* Select Master or Slave */
+	SPI_Master_Slave_Enable(a_config_Ptr->s_master_slave )
 	
 	/* Configure which clock is used by SPI0 */
 	SPI0_CLK_CFG_REG=SPI_CLK_CFG;
@@ -138,7 +117,33 @@ uint8 SPI_receiveByte(void){
   /* return data */
 	return (uint8)SPI0_DATA_REG;
 }
-
+/********************************************************************************
+*[Function Name]: SPI_Master_Slave_Enable.
+*[Description]  : This function is responsible for Making Master or Slave.
+*[in]		: uint8 a_master_or_slave:contain data that will choose master or slave.
+*[out]		: None.
+*[in/out]	: None.
+*[Returns]	: None.
+*********************************************************************************/
+void SPI_Master_Slave_Enable(uint8 a_master_or_slave){
+	
+	/* Select Master or Slave */
+	if(a_master_or_slave == MASTER_ENABLE)
+	{
+		/* Set Pins A2,A3,A4 and A5 directions for SPI MASTER */
+		GPIO_PORTA_DIR_REG &= (uint32)~SPI0_PINS_MASK;
+		GPIO_PORTA_DIR_REG |= SPI0_PINS_MASTER_DIR_MASK;
+		CLEAR_BIT(SPI0_CTL_REG_1,SPI0_MASTER_SLAVE_BIT);
+	}
+	else if (a_master_or_slave == SLAVE_ENABLE)
+	{
+		/* Set Pins A2,A3,A4 and A5 directions for SPI SLAVE */
+		GPIO_PORTA_DIR_REG &= (uint32)~SPI0_PINS_MASK;
+		GPIO_PORTA_DIR_REG |= SPI0_PINS_SLAVE_DIR_MASK;
+		SET_BIT(SPI0_CTL_REG_1,SPI0_MASTER_SLAVE_BIT);
+	}
+	
+}
 /**********************************************************************************************
  *[Function Name]:	SPI_callBackAdress
  *[Description] :This function is responsible for saving the address that will be called after interrupts happen

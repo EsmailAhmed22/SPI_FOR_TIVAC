@@ -27,16 +27,27 @@ Project File Date:  08/30/2021
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-spi.c(159): warning: no previous prototype for function 'SPI_Receive_Handler' [-Wmissing-prototypes]
+"RTE/Device/TM4C123GH6PM/startup_TM4C123.s", line 89 (column 25): Error: A1516E: Bad symbol 'SPI_Receive_Handler', not defined or external
+   89 0000005c                 DCD     SPI_Receive_Handler       ;   7: SSI0 Rx and Tx
+                                       ^
+1 Error, 0 Warnings
+assembling startup_TM4C123.s...
+compiling spi_pbcfg.c...
+spi.c(65): error: called object type 'void' is not a function or function pointer
+        SPI0_CLK_CFG_REG=SPI_CLK_CFG;
+        ^
+./spi_registers.h(37): note: expanded from macro 'SPI0_CLK_CFG_REG'
+#define SPI0_CLK_CFG_REG                                (*((volatile uint32 *)0x40008FC8))
+                                                        ^
+spi.c(164): warning: no previous prototype for function 'SPI_Receive_Handler' [-Wmissing-prototypes]
 void SPI_Receive_Handler(void)
      ^
-spi.c(159): note: declare 'static' if the function is not intended to be used outside of this translation unit
+spi.c(164): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void SPI_Receive_Handler(void)
 ^
 static 
-1 warning generated.
+1 warning and 1 error generated.
 compiling spi.c...
-compiling spi_pbcfg.c...
 RTE/Device/TM4C123GH6PM/system_TM4C123.c(13): warning: In file included from...
 C:/Users/Esmail/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123\TM4C123.h(98): warning: In file included from...
 C:/Users/Esmail/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(298): warning: anonymous unions are a C11 extension [-Wc11-extensions]
@@ -173,16 +184,6 @@ C:/Users/Esmail/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C1
   ^
 44 warnings generated.
 compiling system_TM4C123.c...
-"RTE/Device/TM4C123GH6PM/startup_TM4C123.s", line 89 (column 25): Error: A1516E: Bad symbol 'SPI_Receive_Handler', not defined or external
-   89 0000005c                 DCD     SPI_Receive_Handler       ;   7: SSI0 Rx and Tx
-                                       ^
-1 Error, 0 Warnings
-assembling startup_TM4C123.s...
-linking...
-.\Objects\SPI_FOR_TIVAC.axf: error: L6002U: Could not open file .\objects\startup_tm4c123.o: No such file or directory
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning, 0 error and 1 fatal error messages.
 ".\Objects\SPI_FOR_TIVAC.axf" - 1 Error(s), 45 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -209,11 +210,11 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:1.0.1
-      Source file:   Device\Source\system_TM4C123.c
       Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\system_TM4C123.c
       Source file:   Device\Source\ARM\startup_TM4C123.s
 Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
