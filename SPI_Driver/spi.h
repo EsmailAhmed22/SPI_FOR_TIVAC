@@ -4,7 +4,7 @@
 *
 * File Name: spi.h
 *
-* Description: Pre-Compile Configuration Header file for TM4C123GH6PM Microcontroller - SPI Driver
+* Description: Header file for TM4C123GH6PM Microcontroller - SPI Driver
 *
 * Author: Esmail Ahmed
 *
