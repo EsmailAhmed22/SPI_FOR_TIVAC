@@ -83,7 +83,7 @@ void SPI_init(const SPI_ConfigType *a_config_Ptr){
   SET_BIT(NVIC_EN0_REG,NVIC_SPI0_INTERRUPT);
   
 	/* Enble receive interrupt */
-	SET_BIT(SPI0_INT_MASK_REG,SPI_RX_INT_ENABLE);
+	SET_BIT(SPI0_INT_MASK_REG,SPI0_RX_INT_ENABLE);
 	
 	/* Enaable SPI0 */
 	SET_BIT(SPI0_CTL_REG_1,SPI0_ENABLE_BIT);
@@ -98,7 +98,7 @@ void SPI_init(const SPI_ConfigType *a_config_Ptr){
 *********************************************************************************/
 void SPI_sendByte(const uint8 a_data){
   /* Polling To check if  data is being sent */
-  while(BIT_IS_SET(SPI0_STATUS_REG,SPI_BUSY_CHECK));
+  while(BIT_IS_SET(SPI0_STATUS_REG,SPI0_BUSY_CHECK));
   /* Write data I want to send */
   SPI0_DATA_REG = a_data;
   /* Clear Tx flag */
@@ -163,6 +163,7 @@ void SPI_callBackAdress(void(*a_Func_Ptr)(void)){
 /* ISR for Receiving a Byte*/     
 void SPI_Receive_Handler(void)
 {
+	SET_BIT(SPI0_INT_CLEAR_REG,SPI0_INT_CLEAR);
 	/* Call the function in the Scheduler using Call Back concept */
 	(*g_SPI_interrupt_Func_Ptr)();
 }

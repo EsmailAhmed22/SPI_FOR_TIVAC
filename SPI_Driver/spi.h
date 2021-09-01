@@ -32,8 +32,9 @@
 #define SPI0_MASTER_SLAVE_BIT					(2U)
 #define SPI0_SCR_BIT									(8U)
 #define SPI0_FRAME_BIT								(4U)
-#define SPI_BUSY_CHECK								(4U)
-#define SPI_RX_INT_ENABLE							(1U)
+#define SPI0_BUSY_CHECK								(4U)
+#define SPI0_RX_INT_ENABLE						(1U)
+#define SPI0_INT_CLEAR								(1U)	
 /*******************************************************************************
 ****************************TYPES DECLARATION***********************************
 *******************************************************************************/
