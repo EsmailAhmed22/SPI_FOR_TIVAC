@@ -24,7 +24,7 @@
 #define GPIO_PORTA_PCTL_REG       (*((volatile uint32 *)0x4000452C))
 #define GPIO_PORTA_DIR_REG        (*((volatile uint32 *)0x40004400))
 #define GPIO_PORTA_DEN_REG        (*((volatile uint32 *)0x4000451C))
-#define GPIO_PORTA_PUR_REG				(*((volatile uint32 *)0x40004510))
+
 /* SPI Registers for SPI0 configuration */
 #define SPI0_CTL_REG_0				    (*((volatile uint32 *)0x40008000))
 #define SPI0_CTL_REG_1				    (*((volatile uint32 *)0x40008004))
@@ -32,7 +32,6 @@
 #define SPI0_STATUS_REG				    (*((volatile uint32 *)0x4000800C))
 #define SPI0_CLKPS_REG				    (*((volatile uint32 *)0x40008010))
 #define SPI0_INT_MASK_REG				  (*((volatile uint32 *)0x40008014))
-#define SPI0_INT_STATUS_REG				(*((volatile uint32 *)0x40008018))
 #define SPI0_INT_CLEAR_REG				(*((volatile uint32 *)0x40008020))
 #define SPI0_CLK_CFG_REG  				(*((volatile uint32 *)0x40008FC8))
 
