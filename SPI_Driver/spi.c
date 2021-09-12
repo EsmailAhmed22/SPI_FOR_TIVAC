@@ -59,10 +59,10 @@ void SPI_init(const SPI_ConfigType *a_config_Ptr){
 	CLEAR_BIT(SPI0_CTL_REG_1,SPI0_ENABLE_BIT);
 
   /* Select Master or Slave */
-	SPI_Master_Slave_Enable(a_config_Ptr->s_master_slave )
+	SPI_Master_Slave_Enable(a_config_Ptr->s_master_slave );
 	
 	/* Configure which clock is used by SPI0 */
-	SPI0_CLK_CFG_REG=SPI_CLK_CFG;
+	SPI0_CLK_CFG_REG = SPI_CLK_CFG;
   
 	/* Set prescaler value */
 	SPI0_CLKPS_REG= a_config_Ptr->s_clk_ps_div;
